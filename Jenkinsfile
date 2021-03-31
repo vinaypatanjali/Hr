@@ -37,7 +37,7 @@ pipeline
             steps
             {
                 //bat "mvn install"
-                bat "mvn -f AdvanceJavaAssignment5HR/pom.xml -DskipTests=true install"
+                bat "mvn -f pom.xml -DskipTests=true install"
             }
         }
         
