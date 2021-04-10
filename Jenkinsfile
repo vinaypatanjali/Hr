@@ -41,14 +41,6 @@ pipeline
             }
         }
         
-           stage ('Unit Testing')
-        {
-            steps
-            {
-                echo 'testing...'
-            }
-        }
-        
         stage('Code Quality Check via SonarQube') {
    steps {
             withSonarQubeEnv("SonarQube")
@@ -57,6 +49,16 @@ pipeline
        }
            }
        }
+        
+           stage ('Unit Testing')
+        {
+            steps
+            {
+                echo 'testing...'
+            }
+        }
+        
+        
    }
        
     }
