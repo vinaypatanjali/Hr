@@ -51,7 +51,7 @@ pipeline
         
         stage('Code Quality Check via SonarQube') {
    steps {
-            wuthSonarQubeEnv("SonarQube")
+            withSonarQubeEnv("SonarQube")
        {
            bat "mvn sonar:sonar"
        }
