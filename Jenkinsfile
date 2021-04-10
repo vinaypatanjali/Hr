@@ -41,15 +41,6 @@ pipeline
             }
         }
         
-        stage('Code Quality Check via SonarQube') {
-            steps {
-                withSonarQubeEnv("SonarQube")
-                {
-                    bat "mvn sonar:sonar"
-                }
-           }
-       }
-        
            stage ('Unit Testing')
         {
             steps
@@ -57,6 +48,16 @@ pipeline
                 echo 'testing...'
             }
         }
+        
+        
+          stage('Code Quality Check via SonarQube') {
+            steps {
+                withSonarQubeEnv("SonarQube")
+                {
+                    bat "mvn sonar:sonar"
+                }
+           }
+       }
         
        
     }
