@@ -51,16 +51,10 @@ pipeline
         
         stage('Code Quality Check via SonarQube') {
    steps {
-       script {
-       def scannerHome = tool 'sonar_scanner';
-           withSonarQubeEnv("SonarQube") {
-           bat "${tool("sonar_scanner")}//bin//sonar-scanner \
-           -Dsonar.projectKey=test-node-js \
-           -Dsonar.sources=. \
-           -Dsonar.css.node=. \
-           -Dsonar.host.url=http://localhost:9000 \
-           -Dsonar.login=0e78b721ff9469d4e146d3d90e50cf0b32c3a9de"
-               }
+            wuthSonarQubeEnv("SonarQube")
+       {
+           bat "mvn sonar:sonar"
+       }
            }
        }
    }
