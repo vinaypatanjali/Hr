@@ -52,14 +52,14 @@ pipeline
         stage('Code Quality Check via SonarQube') {
    steps {
        script {
-       def scannerHome = tool 'sonarqube';
+       def scannerHome = tool 'sonar_scanner';
            withSonarQubeEnv("sonar_scanner") {
-           sh "${tool("sonarqube")}/bin/sonar-scanner \
+           bat "${tool("sonarqube")}/bin/sonar-scanner \
            -Dsonar.projectKey=test-node-js \
            -Dsonar.sources=. \
            -Dsonar.css.node=. \
-           -Dsonar.host.url=http://your-ip-here:9000 \
-           -Dsonar.login=your-generated-token-from-sonarqube-container"
+           -Dsonar.host.url=http://localhost:9000 \
+           -Dsonar.login=0e78b721ff9469d4e146d3d90e50cf0b32c3a9de"
                }
            }
        }
