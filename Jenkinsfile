@@ -42,11 +42,11 @@ pipeline
         }
         
         stage('Code Quality Check via SonarQube') {
-   steps {
-            withSonarQubeEnv("SonarQube")
-       {
-           bat "mvn sonar:sonar"
-       }
+            steps {
+                withSonarQubeEnv("SonarQube")
+                {
+                    bat "mvn sonar:sonar"
+                }
            }
        }
         
